@@ -82,11 +82,11 @@ function password(obj) {
     }
     
 
-    sNAame = obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
-    return `${sNAame}#${obj.name}@${obj.birthYear}`;
+    sName = obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
+    return `${sName}#${obj.name}@${obj.birthYear}`;
 }
 
-console.log(password({ name: "", birthYear: 202, siteName: "Facebook" }))
+console.log(password({ name: 'maisha' , birthYear: 2002 }))
 
 
 
