@@ -1,6 +1,6 @@
 function calculateMoney(ticketSale) {
     if (ticketSale < 0) {
-        return "Input should be positive";
+        return "Input should be a positive number";
     }
     else {
         const numOfStaff = 8;
@@ -9,7 +9,6 @@ function calculateMoney(ticketSale) {
         const securityGardCost = 500;
 
         const totalIncome = ticketSale * ticketPrice;
-
         const totalStaffsLunchCost = perPersonLunchCost * numOfStaff;
         const totalExpenses = securityGardCost + totalStaffsLunchCost;
 
@@ -17,14 +16,11 @@ function calculateMoney(ticketSale) {
     }
 }
 
-console.log(calculateMoney(0))
-
-
 
 
 function checkName(name) {
     if (typeof name !== 'string') {
-        return "invalid"
+        return "invalid";
     }
 
     else {
@@ -42,17 +38,12 @@ function checkName(name) {
 
 
 }
-console.log(checkName(222))
-
-
-
-
 
 
 function deleteInvalids(array) {
     const newArray = [];
     if (!Array.isArray(array)) {
-        return "You should enter an array"
+        return "Input should be an array"
     }
     else {
 
@@ -67,42 +58,29 @@ function deleteInvalids(array) {
 
     return newArray;
 }
-console.log(deleteInvalids({ num: [1, 2, 3] }))
-
-
-
-
 
 
 
 function password(obj) {
 
-    if (obj.name === undefined || obj.birthYear === undefined || obj.siteName === undefined || (typeof obj.birthYear!=='number') || obj.birthYear.toString().length!==4) {
-        return "Invalid";
+    if (obj.name === undefined || obj.birthYear === undefined || obj.siteName === undefined || (typeof obj.birthYear !== 'number') || obj.birthYear.toString().length !== 4) {
+        return "invalid";
     }
-    
 
-    sName = obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
-    return `${sName}#${obj.name}@${obj.birthYear}`;
+
+    else {
+        sName = obj.siteName.charAt(0).toUpperCase() + obj.siteName.slice(1)
+        return `${sName}#${obj.name}@${obj.birthYear}`;
+    }
 }
-
-console.log(password({ name: 'maisha' , birthYear: 2002 }))
-
-
-
-
-
-
 
 
 function monthlySavings(arr, livingCost) {
 
-    if (!Array.isArray(arr) || (typeof livingCost !=='number')) {
+    if (!Array.isArray(arr) || (typeof livingCost !== 'number')) {
         return "invalid input";
     }
-
-
-    sum = 0;
+    let sum = 0;
     for (let index = 0; index < arr.length; index++) {
         if (arr[index] >= 3000) {
             arr[index] -= arr[index] * 0.20;
@@ -114,18 +92,22 @@ function monthlySavings(arr, livingCost) {
 
 
     }
-    const savings=sum - livingCost;
+    const savings = sum - livingCost;
 
-    if (savings>0) {
+    if (savings >= 0) {
         return savings;
     }
-    else{
+    else {
         return "earn more"
     }
-    
+
 }
+
+
+
+
+console.log(calculateMoney(-130))
+console.log(checkName(199))
+console.log(deleteInvalids({ num: [1, 2, 3] }))
+console.log(password({ name: "maisha" , birthYear: 2002 }))
 console.log(monthlySavings([ 900 , 2700 , 3400] , 10000));
-
-
-
-
